@@ -1,43 +1,33 @@
-var identification = function(owner)
-	{	
-	if (owner === "Denis")
-		{
+function identification(owner) {
+	var libs = ["islands-components", "islands-user", "islands-icons", "islands-services", "islands-page", "islands-romochka"];	
+	if (libs.indexOf(owner)!=-1) {
 		var access = [1,"access is allowed"];
-		}
-	else
-		{
+	}
+	else {
 		var access = [0,"access denied"];
-		}
+	}
 	return access;
-	} 
-var kp = function()
-	{
-	if (window.event.keyCode == 13) {
-		buttonclick();
-	}
-	}
-var buttonclick = function()
-	{
-	var input = document.getElementById('search'); 
-	var strOwner = input.value;
-	var access = identification(strOwner);
-	console.log(access);
+} 
 
-	var myBody = document.getElementsByTagName('body')[0];
+var count=1;
+
+function buttonclick() {
+	var input = document.getElementById('name'); 
+	var name = input.value;
+	var access = identification(name);
 	var newdiv = document.createElement('div');
-	
-	myBody.appendChild(newdiv);
-	newdiv.innerHTML = access[1];
-
-	var par = document.getElementById('m');
-	par.insertBefore(newdiv, par.firstChild);
-	newdiv.innerHTML = ("<p>" + "</p>" + access[1]);
-	if (access[0] == 0)
-		{
-		newdiv.style.color = '#FF0000';
-		}
-	else
-		{
-		newdiv.style.color = '#00FF00'
-		}
+	var par = document.getElementById('output');
+	if (count>6) {
+		var olddiv = document.getElementsByTagName('div')[5];
+		par.removeChild(olddiv);
 	}
+	par.insertBefore(newdiv, par.firstChild);
+	newdiv.innerHTML = ("<p></p>" + access[1]);
+	if (access[0] == 0) {
+		newdiv.style.color = '#FF0000';
+	}
+	else {
+		newdiv.style.color = '#00FF00'
+	}
+	count++;
+}

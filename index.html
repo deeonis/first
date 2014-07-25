@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-
 <head>
-  <title>Универсальный валидатор доступа</title>
+	<meta charset="utf-8">
+ 	<title>Универсальный валидатор доступа</title>
+ 	<script src="test.js"></script>
 </head>
 
- <script src="index.js"></script>
-
- <body class= "class">
-<!--   <p>Как вас зовут?</p><-->
-   <p> 
-   	   <input placeholder="Как вас зовут?" id ="search" onKeyPress="kp()">
-       <input value="Submit" onclick="buttonclick()" type="button" id = "button"/>
-  </p>
-  
-<p id = "m">
-</p>
- 
- </body>
-
-
+<body>
+	<p>
+		<form autocomplete="off" onsubmit="return false"> 
+   	 		<input placeholder="Как вас зовут?" id="name" value="islands-" onKeyPress="checkEnterAndSubmit()" name="input">
+     		<input onclick="buttonclick()" type="submit" id="button" name="button"/>
+	</p>
+  		</form>
+	<p id="output"></p>
+</body>
 </html>
